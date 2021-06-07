@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Sticker, stickers } from '../shared/models/sticker';
+import { StickerPackage, stickerPackages } from 'src/shared/models/sticker-package';
+import { Sticker } from '../shared/models/sticker';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,20 @@ export class AppComponent {
   lineNotifyApi: string = 'http://localhost:8010/proxy/api/notify';
   lineAccessToken: string = '';
   message: string = '';
-  stickers: Sticker[] = stickers;
-  selectedSticker: Sticker = this.stickers[0];
+  stickerPackages: StickerPackage[] = stickerPackages;
+  selectedSticker: Sticker = this.stickerPackages[0].stickers[0];
+
+  handleStickerSelected(sticker: Sticker) {
+    this.selectedSticker = sticker
+  }
+
+  generateDataBsTarget(stickerPackage: StickerPackage) {
+    return `#${this.generateCollapseId(stickerPackage)}`
+  }
+
+  generateCollapseId(stickerPackage: StickerPackage) {
+    return `sticker-package-${stickerPackage.id}-collapse`
+  }
 
   handleSubmit() {
     const params = new URLSearchParams();
