@@ -476,6 +476,4 @@ const stickerData: Array<ISticker> = [
     { id: 52114149, packageId: 11539 }
 ]
 
-export const stickers = stickerData.map(params => {
-    return new Sticker(params);
-})
+export const stickers = stickerData.map(data => new Sticker(data))

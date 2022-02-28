@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "proxy": "lcp --proxyUrl https://notify-api.line.me"
+    "proxy:notify-api": "lcp --port 8010 --proxyUrl https://notify-api.line.me",
+    "proxy:notify-bot": "lcp --port 8011 --proxyUrl https://notify-bot.line.me"
   },
   "private": true,
   "dependencies": {
