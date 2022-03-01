@@ -5,7 +5,13 @@
 first
 
 ```sh
-npm run proxy
+npm run proxy:notify-api
+```
+
+second
+
+```sh
+npm run proxy:notify-bot
 ```
 
 then
