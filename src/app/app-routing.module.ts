@@ -8,13 +8,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'callback', component: CallbackComponent },
   { path: 'send-message', component: SendMessageComponent },
-  { path: '**', component: LoginComponent }
+  { path: '**', component: LoginComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { 
-}
-
+export class AppRoutingModule {}

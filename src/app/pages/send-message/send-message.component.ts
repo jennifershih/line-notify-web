@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sticker } from 'src/shared/models/sticker';
-import { StickerPackage, stickerPackages } from 'src/shared/models/sticker-package';
+import {
+  StickerPackage,
+  stickerPackages,
+} from 'src/shared/models/sticker-package';
 
 @Component({
   selector: 'app-send-message',
   templateUrl: './send-message.component.html',
-  styleUrls: ['./send-message.component.scss']
+  styleUrls: ['./send-message.component.scss'],
 })
 export class SendMessageComponent implements OnInit {
   message: string = '';
@@ -15,10 +18,7 @@ export class SendMessageComponent implements OnInit {
 
   private lineAccessToken: string = '';
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     const accessToken = this.route.snapshot.queryParamMap.get('access_token');
@@ -31,15 +31,15 @@ export class SendMessageComponent implements OnInit {
   }
 
   handleStickerSelected(sticker: Sticker) {
-    this.selectedSticker = sticker
+    this.selectedSticker = sticker;
   }
 
   generateDataBsTarget(stickerPackage: StickerPackage) {
-    return `#${this.generateCollapseId(stickerPackage)}`
+    return `#${this.generateCollapseId(stickerPackage)}`;
   }
 
   generateCollapseId(stickerPackage: StickerPackage) {
-    return `sticker-package-${stickerPackage.id}-collapse`
+    return `sticker-package-${stickerPackage.id}-collapse`;
   }
 
   handleSubmit() {
@@ -54,17 +54,19 @@ export class SendMessageComponent implements OnInit {
     fetch(endpoint, {
       method: 'POST',
       headers: {
-        'Authorization': authorization,
-        'Content-Type': contentType
+        Authorization: authorization,
+        'Content-Type': contentType,
       },
       body: params,
-    }).then((response) => {
-      return response.json();
-    }).catch((error) => {
-      console.error(error);
-    }).then((json) => {
-      console.log(json);
     })
+      .then((response) => {
+        return response.json();
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .then((json) => {
+        console.log(json);
+      });
   }
-
 }

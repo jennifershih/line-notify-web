@@ -12,14 +12,10 @@ import { CallbackComponent } from './pages/callback/callback.component';
     AppComponent,
     LoginComponent,
     SendMessageComponent,
-    CallbackComponent
+    CallbackComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

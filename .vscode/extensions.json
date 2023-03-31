@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "zignd.html-css-class-completion"
+        "zignd.html-css-class-completion",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
     ]
 }
