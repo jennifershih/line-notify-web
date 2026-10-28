@@ -1,2 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/scss/bootstrap';
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Noto Sans TC',
+    sans-serif;
+  color: #1f2933;
+}
+
+h1 {
+  text-align: center;
+}
+
+.notice {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: #fff8e1;
+  color: #6d4c00;
+}
+
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: #e3f2fd;
+
+  &.error {
+    background: #ffebee;
+    color: #c62828;
+  }
+}
+
+.button,
+button[type='submit'] {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: #06c755;
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}

@@ -1,0 +1,47 @@
+<form (ngSubmit)="send()">
+  <label for="message">Message</label>
+  <input
+    id="message"
+    name="message"
+    placeholder="Please enter your message"
+    [ngModel]="message()"
+    (ngModelChange)="message.set($event)"
+  />
+
+  <div class="stickers">
+    <div class="packages">
+      @for (pkg of packages; track pkg.id) {
+        <details>
+          <summary>{{ pkg.title }}</summary>
+          <div class="grid">
+            @for (sticker of pkg.stickers; track sticker.id) {
+              <button
+                type="button"
+                class="sticker"
+                [class.selected]="sticker === selected()"
+                (click)="selected.set(sticker)"
+              >
+                <img [src]="image(sticker)" alt="Sticker {{ sticker.id }}" loading="lazy" />
+              </button>
+            }
+          </div>
+        </details>
+      }
+    </div>
+    <img class="preview" [src]="image(selected())" alt="Selected sticker" />
+  </div>
+
+  <div class="actions">
+    @switch (status()) {
+      @case ('sent') {
+        <span class="ok">Sent!</span>
+      }
+      @case ('error') {
+        <span class="error">Could not send the message.</span>
+      }
+    }
+    <button type="submit" [disabled]="!message().trim() || status() === 'sending'">
+      {{ status() === 'sending' ? 'Sending…' : 'Send' }}
+    </button>
+  </div>
+</form>
